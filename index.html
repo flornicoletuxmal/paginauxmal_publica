@@ -94,7 +94,23 @@
             z-index: 0;
         }
         @media (min-width: 768px) { .timeline-line::before { left: 50%; margin-left: -1px; } }
-        .wa-dropdown { display: none; position: absolute; top: 100%; left: 0; width: 100%; min-width: 200px; background: #111827; border: 1px solid rgba(255, 255, 255, 0.1); border-radius: 8px; margin-top: 8px; z-index: 100; overflow: hidden; }
+        
+        /* WhatsApp Dropdown Styles */
+        .wa-dropdown { 
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0; 
+            width: 100%; 
+            min-width: 200px; 
+            background: #111827; 
+            border: 1px solid rgba(255, 255, 255, 0.1); 
+            border-radius: 8px; 
+            margin-top: 8px; 
+            z-index: 100; 
+            overflow: hidden; 
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
         .group:hover .wa-dropdown { display: block; }
     </style>
 </head>
@@ -104,13 +120,13 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer" onclick="window.scrollTo(0,0)">
-                    <svg width="140" height="45" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M5 40L20 5L35 40H5Z" fill="white"/>
-                        <path d="M32 40L47 5L62 40H45V48H40V40H32Z" fill="white"/>
-                        <path d="M80 40H110M85 30H105M90 20H100M95 5V15" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                        <path d="M78 40L95 5L112 40H78Z" fill="white" fill-opacity="0.15"/>
-                        <text x="120" y="22" fill="white" font-family="Plus Jakarta Sans" font-weight="400" font-size="12" letter-spacing="1">GRUPO</text>
-                        <text x="120" y="40" fill="#14b8a6" font-family="Plus Jakarta Sans" font-weight="800" font-size="16" letter-spacing="1">UXMAL</text>
+                    <svg width="140" height="40" viewBox="0 0 160 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 35L18 5L31 35H5Z" fill="white"/>
+                        <path d="M28 35L41 5L54 35H42V42H38V35H28Z" fill="white"/>
+                        <path d="M75 35H105M80 25H100M85 15H95M90 5V10" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M72 35L90 5L108 35H72Z" fill="white" fill-opacity="0.15"/>
+                        <text x="115" y="18" fill="white" font-family="Plus Jakarta Sans" font-weight="400" font-size="11" letter-spacing="1">GRUPO</text>
+                        <text x="115" y="35" fill="#14b8a6" font-family="Plus Jakarta Sans" font-weight="800" font-size="16" letter-spacing="1">UXMAL</text>
                     </svg>
                 </div>
 
@@ -136,7 +152,7 @@
                 <a href="#quienes-somos" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Quiénes somos</a>
                 <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Servicios</a>
                 <a href="#metodo" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Metodología</a>
-                <a href="#contacto" class="block px-3 py-2 text-base font-medium text-brand-400">Contacto</a>
+                <a href="#contacto" class="block px-3 py-2 text-base font-medium text-brand-400 font-bold">Contacto</a>
             </div>
         </div>
     </nav>
@@ -172,12 +188,12 @@
                         Solicitar diagnóstico
                         <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
                     </button>
-                    <div class="wa-dropdown shadow-2xl">
+                    <div class="wa-dropdown">
                         <a href="https://wa.me/5491150213061" target="_blank" class="flex items-center gap-3 px-6 py-4 hover:bg-brand-500 hover:text-dark-900 text-sm font-bold transition-colors border-b border-white/5">
-                            <span>🇦🇷</span> Argentina
+                            <span class="text-lg">🇦🇷</span> Argentina
                         </a>
                         <a href="https://wa.me/525622007080" target="_blank" class="flex items-center gap-3 px-6 py-4 hover:bg-brand-500 hover:text-dark-900 text-sm font-bold transition-colors">
-                            <span>🇲🇽</span> México
+                            <span class="text-lg">🇲🇽</span> México
                         </a>
                     </div>
                 </div>
@@ -213,7 +229,7 @@
     <section class="py-24 bg-dark-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Por qué las empresas trabajan con Grupo Uxmal</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Por qué las empresas trabajan con Grupo Uxmal</h2>
                 <p class="text-gray-400">Bases sólidas para operaciones críticas.</p>
             </div>
 
@@ -246,7 +262,7 @@
     <section id="servicios" class="py-24 bg-dark-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 max-w-2xl">Soluciones tecnológicas alineadas a tu estrategia</h2>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 max-w-2xl text-white">Soluciones tecnológicas alineadas a tu estrategia</h2>
                 <p class="text-xl text-gray-400 max-w-3xl">Trabajamos con organizaciones que necesitan modernizar su operación y escalar con seguridad.</p>
             </div>
 
@@ -255,35 +271,35 @@
                     <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
                         <i data-lucide="server" class="w-6 h-6 text-brand-400"></i> Transformación Digital e Infraestructura
                     </h3>
-                    <p class="text-gray-400">Migración a nube, plataformas escalables y arquitecturas resilientes.</p>
+                    <p class="text-gray-400 leading-relaxed">Migración a nube, plataformas escalables y arquitecturas resilientes que reducen costos y aumentan disponibilidad.</p>
                 </div>
                 <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal reveal-delay-1">
                     <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
                         <i data-lucide="git-merge" class="w-6 h-6 text-brand-400"></i> Plataformas, DevOps y Operación
                     </h3>
-                    <p class="text-gray-400">Implementamos entornos confiables y monitoreo 24/7.</p>
+                    <p class="text-gray-400 leading-relaxed">Implementamos entornos confiables, despliegues ágiles y monitoreo 24/7 para acelerar la innovación.</p>
                 </div>
                 <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal">
                     <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
                         <i data-lucide="briefcase" class="w-6 h-6 text-brand-400"></i> Sistemas Empresariales (ERP & Core)
                     </h3>
-                    <p class="text-gray-400">Implementación de soluciones que integran finanzas y logística.</p>
+                    <p class="text-gray-400 leading-relaxed">Implementación de soluciones empresariales que integran finanzas, logística y procesos clave.</p>
                 </div>
                 <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal reveal-delay-1">
                     <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
                         <i data-lucide="wrench" class="w-6 h-6 text-brand-400"></i> Calidad, Soporte y Mejora Continua
                     </h3>
-                    <p class="text-gray-400">Testing, soporte funcional y optimización constante.</p>
+                    <p class="text-gray-400 leading-relaxed">Testing, soporte funcional, gestión de incidencias y optimización constante del rendimiento.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="metodo" class="py-24 bg-dark-900 relative overflow-hidden">
+    <section id="metodo" class="py-24 bg-dark-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="text-center max-w-3xl mx-auto mb-20 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestro método</h2>
-                <p class="text-gray-400 text-lg">Seguimos un proceso claro que reduce riesgos y acelera resultados.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Nuestro método</h2>
+                <p class="text-gray-400 text-lg">Procesos claros que reducen riesgos y aceleran resultados.</p>
             </div>
 
             <div class="relative timeline-line max-w-4xl mx-auto">
@@ -294,19 +310,33 @@
                             <p class="text-gray-400 mt-2">Analizamos tu modelo de negocio y procesos clave.</p>
                         </div>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center">
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_15px_rgba(45,212,191,0.5)]">
                         <span class="text-xs font-bold text-white">1</span>
                     </div>
                     <div class="md:w-1/2 w-full"></div>
                 </div>
+                
+                <div class="relative z-10 flex flex-col md:flex-row items-center mb-16 reveal">
+                    <div class="md:w-1/2 w-full"></div>
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_15px_rgba(45,212,191,0.5)]">
+                        <span class="text-xs font-bold text-white">2</span>
+                    </div>
+                    <div class="md:w-1/2 flex justify-start pl-16 md:pl-12 w-full">
+                        <div class="text-left">
+                            <h3 class="text-xl font-bold text-white">Diseño y Ejecución</h3>
+                            <p class="text-gray-400 mt-2">Implementación por fases con entregables claros y calidad asegurada.</p>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="relative z-10 flex flex-col md:flex-row items-center reveal">
                     <div class="md:w-1/2 flex justify-start md:justify-end md:pr-12 w-full pl-16 md:pl-0">
                         <div class="text-left md:text-right">
                             <h3 class="text-xl font-bold text-white">Operación continua</h3>
-                            <p class="text-gray-400 mt-2">Monitoreo y soporte con indicadores de desempeño.</p>
+                            <p class="text-gray-400 mt-2">Monitoreo y soporte permanente con indicadores de desempeño.</p>
                         </div>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-brand-500 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center">
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-brand-500 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_20px_rgba(45,212,191,0.8)]">
                         <i data-lucide="check" class="w-4 h-4 text-dark-900 font-bold"></i>
                     </div>
                     <div class="md:w-1/2 w-full"></div>
@@ -329,12 +359,12 @@
                             <text x="120" y="40" fill="#14b8a6" font-family="Plus Jakarta Sans" font-weight="800" font-size="16" letter-spacing="1">UXMAL</text>
                         </svg>
                     </div>
-                    <p class="text-gray-400 text-sm">Innovación tecnológica desde Argentina y México para el mundo.</p>
+                    <p class="text-gray-400 text-sm">Innovación tecnológica estratégica desde Argentina y México para el mundo.</p>
                 </div>
                 
                 <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
                     <div>
-                        <h4 class="text-white font-bold mb-6">Contacto Directo</h4>
+                        <h4 class="text-white font-bold mb-6">Contacto</h4>
                         <ul class="space-y-4">
                             <li><a href="mailto:hola@grupouxmal.tech" class="flex items-center gap-3 text-gray-400 hover:text-brand-400 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i> hola@grupouxmal.tech</a></li>
                             <li><a href="https://wa.me/5491150213061" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><i data-lucide="message-circle" class="w-5 h-5 text-brand-400"></i> 🇦🇷 +54 9 11 5021-3061</a></li>
@@ -346,13 +376,13 @@
                         <ul class="space-y-2 text-gray-400 text-sm">
                             <li><a href="#quienes-somos" class="hover:text-white transition-colors">Quiénes Somos</a></li>
                             <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
-                            <li><a href="#metodo" class="hover:text-white transition-colors">Nuestro Método</a></li>
+                            <li><a href="#metodo" class="hover:text-white transition-colors">Metodología</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
             <div class="mt-20 pt-8 border-t border-white/5 text-center text-gray-500 text-xs">
-                © 2024 GRUPO UXMAL. Todos los derechos reservados.
+                © 2026 GRUPO UXMAL. Todos los derechos reservados.
             </div>
         </div>
     </footer>
@@ -372,6 +402,12 @@
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('navbar');
+            if (window.scrollY > 20) nav.classList.add('bg-dark-900', 'shadow-2xl');
+            else nav.classList.remove('bg-dark-900', 'shadow-2xl');
+        });
 
         const revealOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
