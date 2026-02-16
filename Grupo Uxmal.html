@@ -1,0 +1,718 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grupo Uxmal | Transformamos tecnología en resultados de negocio</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Tailwind Config for Custom Colors/Fonts -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            50: '#f0fdfa',
+                            100: '#ccfbf1',
+                            400: '#2dd4bf', // Teal/Cyan tech vibe
+                            500: '#14b8a6',
+                            600: '#0d9488',
+                            900: '#134e4a',
+                            950: '#042f2e',
+                        },
+                        dark: {
+                            900: '#0B0F19', // Deep dark blue/slate
+                            800: '#111827',
+                            700: '#1F2937',
+                        }
+                    },
+                    animation: {
+                        'grid-flow': 'gridMove 20s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                    },
+                    keyframes: {
+                        gridMove: {
+                            '0%': { transform: 'translateY(0)' },
+                            '100%': { transform: 'translateY(50px)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-10px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom CSS for Pro Animations and Tech Feel */
+        body {
+            background-color: #0B0F19;
+            color: #E5E7EB;
+        }
+
+        /* Tech Grid Background */
+        .bg-tech-grid {
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-size: 50px 50px;
+            mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(17, 24, 39, 0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            border-color: rgba(45, 212, 191, 0.4);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px -10px rgba(45, 212, 191, 0.15);
+        }
+
+        /* Glow Text Effect */
+        .text-glow {
+            text-shadow: 0 0 20px rgba(45, 212, 191, 0.4);
+        }
+
+        /* Reveal on Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .reveal-delay-1 { transition-delay: 100ms; }
+        .reveal-delay-2 { transition-delay: 200ms; }
+        .reveal-delay-3 { transition-delay: 300ms; }
+
+        /* Accent Gradient Text */
+        .text-gradient {
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .text-gradient-brand {
+            background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Timeline vertical line */
+        .timeline-line::before {
+            content: '';
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, rgba(45,212,191,0.5), rgba(45,212,191,0.1));
+            z-index: 0;
+        }
+        @media (min-width: 768px) {
+            .timeline-line::before {
+                left: 50%;
+                margin-left: -1px;
+            }
+        }
+    </style>
+</head>
+<body class="antialiased selection:bg-brand-500 selection:text-white">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 transition-all duration-300 bg-dark-900/80 backdrop-blur-md border-b border-white/10" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
+                    <div class="w-8 h-8 rounded bg-gradient-to-br from-brand-400 to-blue-600 flex items-center justify-center">
+                        <i data-lucide="layers" class="text-white w-5 h-5"></i>
+                    </div>
+                    <span class="font-bold text-xl tracking-wide text-white">UXMAL</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#quienes-somos" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Quiénes somos</a>
+                    <a href="#servicios" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Servicios</a>
+                    <a href="#metodo" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Metodología</a>
+                    <a href="#contacto" class="px-5 py-2.5 rounded-full bg-white/10 text-white text-sm font-medium hover:bg-brand-500 hover:text-dark-900 transition-all duration-300 border border-white/10 hover:border-transparent">
+                        Contactar
+                    </a>
+                </div>
+
+                <!-- Mobile menu button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white">
+                        <i data-lucide="menu" class="w-6 h-6"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-white/10">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#quienes-somos" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Quiénes somos</a>
+                <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Servicios</a>
+                <a href="#metodo" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Metodología</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        <!-- Animated Background Grid -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-tech-grid animate-grid-flow opacity-30"></div>
+            <!-- Radial gradient for center focus -->
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,#0B0F19_70%)]"></div>
+            <!-- Brand color glow -->
+            <div class="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-brand-500/10 rounded-full blur-[120px] pointer-events-none"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+            <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8 reveal">
+                <span class="w-2 h-2 rounded-full bg-brand-400 animate-pulse"></span>
+                <span class="text-xs font-semibold tracking-wider text-gray-300 uppercase">Estrategia & Operación TI</span>
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 reveal reveal-delay-1 max-w-4xl">
+                Transformamos <span class="text-gradient-brand">tecnología</span> en resultados de negocio.
+            </h1>
+            
+            <p class="text-xl md:text-2xl text-gray-400 mb-4 max-w-3xl reveal reveal-delay-2 font-light">
+                Diseñamos, implementamos y operamos soluciones tecnológicas estratégicas con responsabilidad total sobre la experiencia y el desempeño de tu organización.
+            </p>
+
+            <p class="text-lg text-white font-medium mb-10 reveal reveal-delay-2">
+                Un solo equipo. Un solo responsable. Resultados medibles.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-4 reveal reveal-delay-3 w-full sm:w-auto">
+                <a href="#contacto" class="group relative px-8 py-4 bg-brand-500 text-dark-900 font-bold rounded-lg overflow-hidden transition-transform hover:scale-105">
+                    <div class="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out"></div>
+                    <span class="relative flex items-center justify-center gap-2">
+                        Solicitar diagnóstico
+                        <i data-lucide="arrow-right" class="w-4 h-4 group-hover:translate-x-1 transition-transform"></i>
+                    </span>
+                </a>
+                <a href="#servicios" class="px-8 py-4 bg-transparent border border-gray-600 text-white font-semibold rounded-lg hover:bg-white/5 hover:border-gray-400 transition-all flex items-center justify-center gap-2">
+                    Conocer nuestros servicios
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiénes somos -->
+    <section id="quienes-somos" class="py-24 bg-dark-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="reveal">
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Estrategia primero.<br><span class="text-gray-500">Tecnología después.</span></h2>
+                    <div class="w-20 h-1 bg-brand-500 mb-8 rounded-full"></div>
+                </div>
+                <div class="reveal reveal-delay-1 space-y-6 text-lg text-gray-400 leading-relaxed">
+                    <p>
+                        Grupo Uxmal nace con una idea simple: <strong class="text-white font-medium">la tecnología solo tiene sentido cuando mejora el negocio.</strong>
+                    </p>
+                    <p>
+                        No somos vendedores de herramientas ni integradores improvisados. Somos un equipo con profundo conocimiento en gestión empresarial, transformación digital y operación de servicios críticos. Entendemos procesos, finanzas, operaciones y experiencia del cliente. A partir de ahí diseñamos soluciones tecnológicas que realmente generan impacto.
+                    </p>
+                    <p class="text-brand-400 font-medium pl-4 border-l-2 border-brand-500">
+                        Acompañamos a nuestros clientes desde la definición de la estrategia hasta la operación diaria, con una sola responsabilidad: que todo funcione.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Propuesta de valor -->
+    <section class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Por qué las empresas trabajan con Grupo Uxmal</h2>
+                <p class="text-gray-400">Bases sólidas para operaciones críticas.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Bloque 1 -->
+                <div class="glass-card p-8 rounded-2xl reveal">
+                    <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center mb-6">
+                        <i data-lucide="target" class="w-7 h-7 text-brand-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Enfoque en negocio</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Cada proyecto inicia con objetivos, métricas y retorno esperado. La tecnología es el medio, no el fin.
+                    </p>
+                </div>
+
+                <!-- Bloque 2 -->
+                <div class="glass-card p-8 rounded-2xl reveal reveal-delay-1">
+                    <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6">
+                        <i data-lucide="shield-check" class="w-7 h-7 text-blue-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Gobernanza y control</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Gestionamos riesgos, alcance, tiempos y calidad con metodologías formales y reportes ejecutivos claros.
+                    </p>
+                </div>
+
+                <!-- Bloque 3 -->
+                <div class="glass-card p-8 rounded-2xl reveal reveal-delay-2">
+                    <div class="w-14 h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-6">
+                        <i data-lucide="activity" class="w-7 h-7 text-emerald-400"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Operación garantizada</h3>
+                    <p class="text-gray-400 leading-relaxed">
+                        Monitoreo proactivo, soporte continuo y mejora permanente para asegurar estabilidad y crecimiento.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qué hacemos -->
+    <section id="servicios" class="py-24 bg-dark-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="mb-16 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 max-w-2xl">Soluciones tecnológicas alineadas a tu estrategia</h2>
+                <p class="text-xl text-gray-400 max-w-3xl">
+                    Trabajamos con organizaciones que necesitan modernizar su operación, escalar con seguridad y tomar decisiones basadas en datos.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
+                <!-- Servicio 1 -->
+                <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="cloud" class="w-24 h-24 text-brand-400"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <i data-lucide="server" class="w-6 h-6 text-brand-400"></i>
+                            Transformación Digital e Infraestructura
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Migración a nube, plataformas escalables, automatización y arquitecturas resilientes que reducen costos y aumentan disponibilidad.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Servicio 2 -->
+                <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal reveal-delay-1">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="cpu" class="w-24 h-24 text-brand-400"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <i data-lucide="git-merge" class="w-6 h-6 text-brand-400"></i>
+                            Plataformas, DevOps y Operación
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Implementamos entornos confiables, despliegues ágiles y monitoreo 24/7 para acelerar la innovación sin comprometer la estabilidad.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Servicio 3 -->
+                <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="database" class="w-24 h-24 text-brand-400"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <i data-lucide="briefcase" class="w-6 h-6 text-brand-400"></i>
+                            Sistemas Empresariales (ERP & Core)
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Implementación y evolución de soluciones empresariales que integran finanzas, operaciones, logística y procesos clave.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Servicio 4 -->
+                <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal reveal-delay-1">
+                    <div class="absolute top-0 right-0 p-8 opacity-5 group-hover:opacity-20 transition-opacity">
+                        <i data-lucide="headphones" class="w-24 h-24 text-brand-400"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
+                            <i data-lucide="wrench" class="w-6 h-6 text-brand-400"></i>
+                            Calidad, Soporte y Mejora Continua
+                        </h3>
+                        <p class="text-gray-400 leading-relaxed">
+                            Testing, soporte funcional y técnico, gestión de incidencias y optimización constante para mantener el rendimiento del negocio.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cómo trabajamos (Metodología) -->
+    <section id="metodo" class="py-24 bg-dark-900 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Nuestro método</h2>
+                <p class="text-gray-400 text-lg">No improvisamos. Seguimos un proceso claro que reduce riesgos y acelera resultados.</p>
+            </div>
+
+            <div class="relative timeline-line max-w-4xl mx-auto">
+                <!-- Paso 1 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center mb-16 reveal">
+                    <div class="md:w-1/2 flex justify-start md:justify-end md:pr-12 w-full pl-16 md:pl-0 mb-4 md:mb-0">
+                        <div class="text-left md:text-right">
+                            <h3 class="text-xl font-bold text-white">Diagnóstico estratégico</h3>
+                            <p class="text-gray-400 mt-2">Analizamos tu modelo de negocio, procesos y métricas clave. Definimos prioridades y oportunidades de impacto.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_15px_rgba(45,212,191,0.5)]">
+                        <span class="text-xs font-bold text-white">1</span>
+                    </div>
+                    <div class="md:w-1/2 w-full"></div>
+                </div>
+
+                <!-- Paso 2 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center mb-16 reveal">
+                    <div class="md:w-1/2 w-full"></div>
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_15px_rgba(45,212,191,0.5)]">
+                        <span class="text-xs font-bold text-white">2</span>
+                    </div>
+                    <div class="md:w-1/2 flex justify-start pl-16 md:pl-12 w-full mt-4 md:mt-0">
+                        <div class="text-left">
+                            <h3 class="text-xl font-bold text-white">Diseño de solución</h3>
+                            <p class="text-gray-400 mt-2">Traducimos objetivos de negocio en arquitectura, roadmap y plan de implementación.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 3 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center mb-16 reveal">
+                    <div class="md:w-1/2 flex justify-start md:justify-end md:pr-12 w-full pl-16 md:pl-0 mb-4 md:mb-0">
+                        <div class="text-left md:text-right">
+                            <h3 class="text-xl font-bold text-white">Implementación controlada</h3>
+                            <p class="text-gray-400 mt-2">Ejecución por fases con entregables claros, pruebas y aceptación continua.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_15px_rgba(45,212,191,0.5)]">
+                        <span class="text-xs font-bold text-white">3</span>
+                    </div>
+                    <div class="md:w-1/2 w-full"></div>
+                </div>
+
+                <!-- Paso 4 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center mb-16 reveal">
+                    <div class="md:w-1/2 w-full"></div>
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_15px_rgba(45,212,191,0.5)]">
+                        <span class="text-xs font-bold text-white">4</span>
+                    </div>
+                    <div class="md:w-1/2 flex justify-start pl-16 md:pl-12 w-full mt-4 md:mt-0">
+                        <div class="text-left">
+                            <h3 class="text-xl font-bold text-white">Adopción y cambio</h3>
+                            <p class="text-gray-400 mt-2">Capacitación, acompañamiento y gestión cultural para asegurar uso real de la solución.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Paso 5 -->
+                <div class="relative z-10 flex flex-col md:flex-row items-center reveal">
+                    <div class="md:w-1/2 flex justify-start md:justify-end md:pr-12 w-full pl-16 md:pl-0 mb-4 md:mb-0">
+                        <div class="text-left md:text-right">
+                            <h3 class="text-xl font-bold text-white">Operación y mejora continua</h3>
+                            <p class="text-gray-400 mt-2">Monitoreo, soporte y optimización permanente con indicadores de desempeño.</p>
+                        </div>
+                    </div>
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-brand-500 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_20px_rgba(45,212,191,0.8)]">
+                        <i data-lucide="check" class="w-4 h-4 text-dark-900 font-bold"></i>
+                    </div>
+                    <div class="md:w-1/2 w-full"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resultados medibles -->
+    <section class="py-24 bg-dark-800 border-y border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-12 items-center">
+                <div class="lg:w-1/3 reveal">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Lo que medimos,<br>mejoramos</h2>
+                    <p class="text-gray-400 text-lg mb-6">No hablamos de percepciones. Trabajamos con métricas tangibles que impactan el balance final.</p>
+                    <div class="p-6 bg-brand-500/10 border border-brand-500/20 rounded-xl">
+                        <p class="text-brand-400 font-medium">Cada proyecto incluye KPIs definidos desde el inicio y reportes ejecutivos periódicos.</p>
+                    </div>
+                </div>
+                
+                <div class="lg:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 w-full">
+                    <div class="glass-card p-6 rounded-xl flex items-start gap-4 reveal">
+                        <div class="text-4xl font-extrabold text-white"><span class="counter" data-target="99.9">0</span>%</div>
+                        <div class="text-gray-400 text-sm mt-1">Disponibilidad asegurada en servicios críticos y operaciones core.</div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl flex items-start gap-4 reveal reveal-delay-1">
+                        <div class="text-brand-400 mt-1"><i data-lucide="trending-down" class="w-8 h-8"></i></div>
+                        <div>
+                            <div class="text-xl font-bold text-white">Reducción de Tiempos</div>
+                            <div class="text-gray-400 text-sm mt-1">Menor tiempo de resolución de incidentes técnicos.</div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl flex items-start gap-4 reveal">
+                        <div class="text-brand-400 mt-1"><i data-lucide="zap" class="w-8 h-8"></i></div>
+                        <div>
+                            <div class="text-xl font-bold text-white">Mayor Velocidad</div>
+                            <div class="text-gray-400 text-sm mt-1">Despliegue ágil de nuevas funcionalidades al mercado.</div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl flex items-start gap-4 reveal reveal-delay-1">
+                        <div class="text-brand-400 mt-1"><i data-lucide="pie-chart" class="w-8 h-8"></i></div>
+                        <div>
+                            <div class="text-xl font-bold text-white">Eficiencia Financiera</div>
+                            <div class="text-gray-400 text-sm mt-1">Menores costos operativos por automatización.</div>
+                        </div>
+                    </div>
+                    <div class="glass-card p-6 rounded-xl sm:col-span-2 flex items-center justify-center text-center reveal reveal-delay-2">
+                        <div>
+                            <div class="text-xl font-bold text-white mb-2">Adopción Total</div>
+                            <div class="text-gray-400 text-sm">Mayor adopción y uso efectivo por parte de los usuarios finales.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- A quién ayudamos & Diferenciador -->
+    <section class="py-24 bg-dark-900 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-20">
+                
+                <!-- A quién ayudamos -->
+                <div class="reveal">
+                    <h2 class="text-3xl font-bold mb-6">Industrias y organizaciones</h2>
+                    <p class="text-gray-400 mb-8">Trabajamos con empresas medianas y grandes que dependen de la tecnología para operar y crecer exponencialmente.</p>
+                    
+                    <ul class="space-y-4">
+                        <li class="flex items-center gap-3 glass-card px-4 py-3 rounded-lg">
+                            <i data-lucide="building-2" class="w-5 h-5 text-brand-400"></i>
+                            <span class="text-gray-200">Corporativos y grupos empresariales</span>
+                        </li>
+                        <li class="flex items-center gap-3 glass-card px-4 py-3 rounded-lg">
+                            <i data-lucide="shopping-cart" class="w-5 h-5 text-brand-400"></i>
+                            <span class="text-gray-200">Retail y comercio electrónico</span>
+                        </li>
+                        <li class="flex items-center gap-3 glass-card px-4 py-3 rounded-lg">
+                            <i data-lucide="landmark" class="w-5 h-5 text-brand-400"></i>
+                            <span class="text-gray-200">Servicios financieros</span>
+                        </li>
+                        <li class="flex items-center gap-3 glass-card px-4 py-3 rounded-lg">
+                            <i data-lucide="truck" class="w-5 h-5 text-brand-400"></i>
+                            <span class="text-gray-200">Manufactura y logística</span>
+                        </li>
+                        <li class="flex items-center gap-3 glass-card px-4 py-3 rounded-lg border-brand-500/30">
+                            <i data-lucide="refresh-cw" class="w-5 h-5 text-brand-500 animate-spin-slow"></i>
+                            <span class="text-white font-medium">Empresas en proceso de transformación digital</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Diferenciador Emocional -->
+                <div class="relative rounded-3xl overflow-hidden reveal reveal-delay-1 p-10 flex flex-col justify-center">
+                    <!-- Background image/overlay for metaphor -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-brand-950 to-dark-900 z-0 border border-white/10 rounded-3xl"></div>
+                    <div class="absolute inset-0 opacity-20 z-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZD0iTTAgMGg0MHY0MEgweiIgZmlsbD0ibm9uZSIvPjxwYXRoIGQ9Ik0wIDEwaDQwTTAgMjBoNDBNMCAzMGg0ME0xMCAwdjQwTTIwIDB2NDBNeTMwIDB2NDAiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLW9wYWNpdHk9IjAuMSIgc3Ryb2tlLXdpZHRoPSIxIi8+PC9zdmc+')]"></div>
+                    
+                    <div class="relative z-10">
+                        <i data-lucide="pyramid" class="w-12 h-12 text-brand-400 mb-6"></i>
+                        <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white leading-tight">Construimos bases sólidas para el crecimiento</h2>
+                        <p class="text-gray-300 mb-4 text-lg">
+                            Uxmal fue una ciudad planeada con precisión, donde cada estructura se apoyaba en la anterior para crear algo más grande y duradero.
+                        </p>
+                        <p class="text-gray-300 mb-8 text-lg">
+                            Así entendemos la tecnología: capas bien integradas, diseñadas para sostener el futuro del negocio.
+                        </p>
+                        <div class="inline-block px-6 py-3 bg-white/10 backdrop-blur-sm border-l-4 border-brand-500 rounded-r-lg">
+                            <p class="text-white font-semibold text-xl">No añadimos complejidad.<br><span class="text-brand-400">Construimos estabilidad.</span></p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Llamado a la acción (CTA) -->
+    <section id="contacto" class="py-24 relative overflow-hidden">
+        <!-- Dynamic Gradient Background -->
+        <div class="absolute inset-0 bg-gradient-to-br from-brand-900 via-dark-900 to-dark-900 z-0"></div>
+        <!-- Light beams -->
+        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-500/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+        <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-[100px] pointer-events-none mix-blend-screen"></div>
+
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center reveal">
+            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Listos para transformar tu operación</h2>
+            <p class="text-xl text-gray-300 mb-10 max-w-2xl mx-auto">
+                Conversemos sobre tus retos actuales y diseñemos un plan claro para resolverlos con tecnología estratégica y operación garantizada.
+            </p>
+            
+            <div class="flex flex-col sm:flex-row gap-5 justify-center">
+                <button class="px-8 py-4 bg-brand-500 text-dark-900 font-bold rounded-lg shadow-[0_0_20px_rgba(45,212,191,0.3)] hover:shadow-[0_0_30px_rgba(45,212,191,0.5)] transition-all hover:-translate-y-1">
+                    Agendar diagnóstico sin costo
+                </button>
+                <button class="px-8 py-4 bg-white/5 border border-white/20 text-white font-semibold rounded-lg hover:bg-white/10 transition-all backdrop-blur-sm">
+                    Contactar a un especialista
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 border-t border-white/5 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
+                <div class="md:col-span-2">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-6 h-6 rounded bg-gradient-to-br from-brand-400 to-blue-600 flex items-center justify-center">
+                            <i data-lucide="layers" class="text-white w-3 h-3"></i>
+                        </div>
+                        <span class="font-bold text-lg tracking-wide text-white">GRUPO UXMAL</span>
+                    </div>
+                    <p class="text-gray-400 max-w-sm mb-6">
+                        Integración estratégica y operación de soluciones tecnológicas empresariales.
+                    </p>
+                </div>
+                
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Enlaces</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#servicios" class="text-gray-400 hover:text-brand-400 transition-colors text-sm">Servicios</a></li>
+                        <li><a href="#metodo" class="text-gray-400 hover:text-brand-400 transition-colors text-sm">Metodología</a></li>
+                        <li><a href="#contacto" class="text-gray-400 hover:text-brand-400 transition-colors text-sm">Contacto</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-brand-400 transition-colors text-sm">Aviso de privacidad</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Contacto</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="mail" class="w-4 h-4 text-brand-400"></i>
+                            <a href="mailto:hola@grupouxmal.tech" class="text-gray-400 hover:text-white transition-colors text-sm">hola@grupouxmal.tech</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i data-lucide="phone" class="w-4 h-4 text-brand-400"></i>
+                            <span class="text-gray-400 text-sm">+52 XXX XXX XXXX</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Grupo Uxmal. Todos los derechos reservados.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="linkedin" class="w-5 h-5"></i></a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors"><i data-lucide="twitter" class="w-5 h-5"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 20) {
+                navbar.classList.add('shadow-lg');
+                navbar.classList.replace('bg-dark-900/80', 'bg-dark-900/95');
+            } else {
+                navbar.classList.remove('shadow-lg');
+                navbar.classList.replace('bg-dark-900/95', 'bg-dark-900/80');
+            }
+        });
+
+        // Scroll Reveal Animation (Intersection Observer)
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        const revealOptions = {
+            threshold: 0.15,
+            rootMargin: "0px 0px -50px 0px"
+        };
+
+        const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+            entries.forEach(entry => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('active');
+                
+                // Trigger counter animation if element has counter
+                const counter = entry.target.querySelector('.counter');
+                if (counter && !counter.classList.contains('counted')) {
+                    animateCounter(counter);
+                    counter.classList.add('counted');
+                }
+                
+                observer.unobserve(entry.target);
+            });
+        }, revealOptions);
+
+        revealElements.forEach(el => {
+            revealOnScroll.observe(el);
+        });
+
+        // Number Counter Animation
+        function animateCounter(el) {
+            const target = parseFloat(el.getAttribute('data-target'));
+            const duration = 2000; // 2 seconds
+            const step = target / (duration / 16); // 60fps
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    el.innerText = current.toFixed(1);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    el.innerText = target.toFixed(1);
+                }
+            };
+            updateCounter();
+        }
+    </script>
+</body>
+</html>
