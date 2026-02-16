@@ -41,16 +41,11 @@
                     animation: {
                         'grid-flow': 'gridMove 20s linear infinite',
                         'float': 'float 6s ease-in-out infinite',
-                        'spin-slow': 'spin 8s linear infinite',
                     },
                     keyframes: {
                         gridMove: {
                             '0%': { transform: 'translateY(0)' },
                             '100%': { transform: 'translateY(50px)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-10px)' },
                         }
                     }
                 }
@@ -80,9 +75,6 @@
         }
         .reveal { opacity: 0; transform: translateY(30px); transition: all 0.8s cubic-bezier(0.5, 0, 0, 1); }
         .reveal.active { opacity: 1; transform: translateY(0); }
-        .reveal-delay-1 { transition-delay: 100ms; }
-        .reveal-delay-2 { transition-delay: 200ms; }
-        .reveal-delay-3 { transition-delay: 300ms; }
         .text-gradient-brand {
             background: linear-gradient(135deg, #2dd4bf 0%, #3b82f6 100%);
             -webkit-background-clip: text;
@@ -94,27 +86,9 @@
             z-index: 0;
         }
         @media (min-width: 768px) { .timeline-line::before { left: 50%; margin-left: -1px; } }
-        
-        /* WhatsApp Dropdown Styles */
-        .wa-dropdown { 
-            display: none; 
-            position: absolute; 
-            top: 100%; 
-            left: 0; 
-            width: 100%; 
-            min-width: 200px; 
-            background: #111827; 
-            border: 1px solid rgba(255, 255, 255, 0.1); 
-            border-radius: 8px; 
-            margin-top: 8px; 
-            z-index: 100; 
-            overflow: hidden; 
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
-        }
-        .group:hover .wa-dropdown { display: block; }
     </style>
 </head>
-<body class="antialiased selection:bg-brand-500 selection:text-white">
+<body class="antialiased">
 
     <nav class="fixed w-full z-50 transition-all duration-300 bg-dark-900/80 backdrop-blur-md border-b border-white/10" id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -134,13 +108,13 @@
                     <a href="#quienes-somos" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Quiénes somos</a>
                     <a href="#servicios" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Servicios</a>
                     <a href="#metodo" class="text-sm font-medium text-gray-300 hover:text-white transition-colors">Metodología</a>
-                    <a href="#contacto" class="px-5 py-2.5 rounded-full bg-white/10 text-white text-sm font-medium hover:bg-brand-500 hover:text-dark-900 transition-all duration-300 border border-white/10 hover:border-transparent">
+                    <a href="mailto:hola@grupouxmal.tech?subject=Contacto desde la web" class="px-5 py-2.5 rounded-full bg-white/10 text-white text-sm font-medium hover:bg-brand-500 hover:text-dark-900 transition-all duration-300 border border-white/10 hover:border-transparent">
                         Contactar
                     </a>
                 </div>
 
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" class="text-gray-300 hover:text-white">
+                    <button id="mobile-menu-btn" class="text-gray-300">
                         <i data-lucide="menu" class="w-6 h-6"></i>
                     </button>
                 </div>
@@ -149,10 +123,10 @@
         
         <div id="mobile-menu" class="hidden md:hidden bg-dark-800 border-b border-white/10">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#quienes-somos" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Quiénes somos</a>
-                <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Servicios</a>
-                <a href="#metodo" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white">Metodología</a>
-                <a href="#contacto" class="block px-3 py-2 text-base font-medium text-brand-400 font-bold">Contacto</a>
+                <a href="#quienes-somos" class="block px-3 py-2 text-base font-medium text-gray-300">Quiénes somos</a>
+                <a href="#servicios" class="block px-3 py-2 text-base font-medium text-gray-300">Servicios</a>
+                <a href="#metodo" class="block px-3 py-2 text-base font-medium text-gray-300">Metodología</a>
+                <a href="mailto:hola@grupouxmal.tech" class="block px-3 py-2 text-base font-medium text-brand-400 font-bold">Contacto</a>
             </div>
         </div>
     </nav>
@@ -170,34 +144,21 @@
                 <span class="text-xs font-semibold tracking-wider text-gray-300 uppercase">Estrategia & Operación TI</span>
             </div>
             
-            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 reveal reveal-delay-1 max-w-4xl">
+            <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6 reveal max-w-4xl">
                 Transformamos <span class="text-gradient-brand">tecnología</span> en resultados de negocio.
             </h1>
             
-            <p class="text-xl md:text-2xl text-gray-400 mb-4 max-w-3xl reveal reveal-delay-2 font-light">
-                Diseñamos, implementamos y operamos soluciones tecnológicas estratégicas con responsabilidad total sobre la experiencia y el desempeño de tu organización.
-            </p>
-
-            <p class="text-lg text-white font-medium mb-10 reveal reveal-delay-2">
-                Un solo equipo. Un solo responsable. Resultados medibles.
+            <p class="text-xl md:text-2xl text-gray-400 mb-4 max-w-3xl reveal font-light">
+                Diseñamos, implementamos y operamos soluciones tecnológicas estratégicas con responsabilidad total sobre el desempeño de tu organización.
             </p>
             
-            <div class="flex flex-col sm:flex-row gap-4 reveal reveal-delay-3 w-full sm:w-auto">
-                <div class="relative group">
-                    <button class="px-8 py-4 bg-brand-500 text-dark-900 font-bold rounded-lg flex items-center justify-center gap-2 w-full transition-transform hover:scale-105">
-                        Solicitar diagnóstico
-                        <i data-lucide="chevron-down" class="w-4 h-4 transition-transform group-hover:rotate-180"></i>
-                    </button>
-                    <div class="wa-dropdown">
-                        <a href="https://wa.me/5491150213061" target="_blank" class="flex items-center gap-3 px-6 py-4 hover:bg-brand-500 hover:text-dark-900 text-sm font-bold transition-colors border-b border-white/5">
-                            <span class="text-lg">🇦🇷</span> Argentina
-                        </a>
-                        <a href="https://wa.me/525622007080" target="_blank" class="flex items-center gap-3 px-6 py-4 hover:bg-brand-500 hover:text-dark-900 text-sm font-bold transition-colors">
-                            <span class="text-lg">🇲🇽</span> México
-                        </a>
-                    </div>
-                </div>
-                <a href="#servicios" class="px-8 py-4 bg-transparent border border-gray-600 text-white font-semibold rounded-lg hover:bg-white/5 hover:border-gray-400 transition-all flex items-center justify-center gap-2">
+            <div class="flex flex-col sm:flex-row gap-4 reveal w-full sm:w-auto mt-10">
+                <a href="mailto:hola@grupouxmal.tech?subject=Solicitud de Diagnóstico TI&body=Hola equipo de Grupo Uxmal, me gustaría solicitar un diagnóstico para mi empresa..." 
+                   class="px-8 py-4 bg-brand-500 text-dark-900 font-bold rounded-lg flex items-center justify-center gap-2 w-full transition-transform hover:scale-105">
+                    <i data-lucide="mail" class="w-5 h-5"></i>
+                    Solicitar diagnóstico
+                </a>
+                <a href="#servicios" class="px-8 py-4 bg-transparent border border-gray-600 text-white font-semibold rounded-lg hover:bg-white/5 transition-all flex items-center justify-center gap-2">
                     Conocer nuestros servicios
                 </a>
             </div>
@@ -208,19 +169,12 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
                 <div class="reveal">
-                    <h2 class="text-3xl md:text-5xl font-bold mb-6">Estrategia primero.<br><span class="text-gray-500">Tecnología después.</span></h2>
+                    <h2 class="text-3xl md:text-5xl font-bold mb-6 text-white">Estrategia primero.<br><span class="text-gray-500">Tecnología después.</span></h2>
                     <div class="w-20 h-1 bg-brand-500 mb-8 rounded-full"></div>
                 </div>
-                <div class="reveal reveal-delay-1 space-y-6 text-lg text-gray-400 leading-relaxed">
-                    <p>
-                        Grupo Uxmal nace con una idea simple: <strong class="text-white font-medium">la tecnología solo tiene sentido cuando mejora el negocio.</strong>
-                    </p>
-                    <p>
-                        No somos vendedores de herramientas ni integradores improvisados. Somos un equipo con profundo conocimiento en gestión empresarial, transformación digital y operación de servicios críticos.
-                    </p>
-                    <p class="text-brand-400 font-medium pl-4 border-l-2 border-brand-500">
-                        Acompañamos a nuestros clientes desde la definición de la estrategia hasta la operación diaria, con una sola responsabilidad: que todo funcione.
-                    </p>
+                <div class="reveal space-y-6 text-lg text-gray-400 leading-relaxed">
+                    <p>Grupo Uxmal nace con una idea simple: <strong class="text-white">la tecnología solo tiene sentido cuando mejora el negocio.</strong></p>
+                    <p>No somos vendedores de herramientas. Somos un equipo con profundo conocimiento en gestión empresarial, transformación digital y operación de servicios críticos.</p>
                 </div>
             </div>
         </div>
@@ -228,32 +182,27 @@
 
     <section class="py-24 bg-dark-900 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center max-w-3xl mx-auto mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Por qué las empresas trabajan con Grupo Uxmal</h2>
-                <p class="text-gray-400">Bases sólidas para operaciones críticas.</p>
-            </div>
-
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div class="glass-card p-8 rounded-2xl reveal">
                     <div class="w-14 h-14 rounded-xl bg-brand-500/10 flex items-center justify-center mb-6">
                         <i data-lucide="target" class="w-7 h-7 text-brand-400"></i>
                     </div>
                     <h3 class="text-xl font-bold text-white mb-4">Enfoque en negocio</h3>
-                    <p class="text-gray-400 leading-relaxed">Cada proyecto inicia con objetivos, métricas y retorno esperado.</p>
+                    <p class="text-gray-400">Cada proyecto inicia con objetivos y retorno esperado.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl reveal reveal-delay-1">
+                <div class="glass-card p-8 rounded-2xl reveal">
                     <div class="w-14 h-14 rounded-xl bg-blue-500/10 flex items-center justify-center mb-6">
                         <i data-lucide="shield-check" class="w-7 h-7 text-blue-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Gobernanza y control</h3>
-                    <p class="text-gray-400 leading-relaxed">Gestionamos riesgos, alcance, tiempos y calidad con metodologías formales.</p>
+                    <h3 class="text-xl font-bold text-white mb-4">Gobernanza</h3>
+                    <p class="text-gray-400">Gestionamos riesgos y calidad con metodologías formales.</p>
                 </div>
-                <div class="glass-card p-8 rounded-2xl reveal reveal-delay-2">
+                <div class="glass-card p-8 rounded-2xl reveal">
                     <div class="w-14 h-14 rounded-xl bg-emerald-500/10 flex items-center justify-center mb-6">
                         <i data-lucide="activity" class="w-7 h-7 text-emerald-400"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Operación garantizada</h3>
-                    <p class="text-gray-400 leading-relaxed">Monitoreo proactivo, soporte continuo y mejora permanente.</p>
+                    <h3 class="text-xl font-bold text-white mb-4">Operación</h3>
+                    <p class="text-gray-400">Monitoreo proactivo y mejora permanente.</p>
                 </div>
             </div>
         </div>
@@ -262,84 +211,51 @@
     <section id="servicios" class="py-24 bg-dark-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="mb-16 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-6 max-w-2xl text-white">Soluciones tecnológicas alineadas a tu estrategia</h2>
-                <p class="text-xl text-gray-400 max-w-3xl">Trabajamos con organizaciones que necesitan modernizar su operación y escalar con seguridad.</p>
+                <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white">Soluciones tecnológicas estratégicas</h2>
+                <p class="text-xl text-gray-400">Transformamos tu operación con seguridad y escalabilidad.</p>
             </div>
-
             <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                        <i data-lucide="server" class="w-6 h-6 text-brand-400"></i> Transformación Digital e Infraestructura
-                    </h3>
-                    <p class="text-gray-400 leading-relaxed">Migración a nube, plataformas escalables y arquitecturas resilientes que reducen costos y aumentan disponibilidad.</p>
+                <div class="group bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 reveal">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3"><i data-lucide="server" class="text-brand-400"></i> Transformación Digital</h3>
+                    <p class="text-gray-400">Migración a nube y arquitecturas resilientes.</p>
                 </div>
-                <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal reveal-delay-1">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                        <i data-lucide="git-merge" class="w-6 h-6 text-brand-400"></i> Plataformas, DevOps y Operación
-                    </h3>
-                    <p class="text-gray-400 leading-relaxed">Implementamos entornos confiables, despliegues ágiles y monitoreo 24/7 para acelerar la innovación.</p>
-                </div>
-                <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                        <i data-lucide="briefcase" class="w-6 h-6 text-brand-400"></i> Sistemas Empresariales (ERP & Core)
-                    </h3>
-                    <p class="text-gray-400 leading-relaxed">Implementación de soluciones empresariales que integran finanzas, logística y procesos clave.</p>
-                </div>
-                <div class="group relative bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 transition-colors reveal reveal-delay-1">
-                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3">
-                        <i data-lucide="wrench" class="w-6 h-6 text-brand-400"></i> Calidad, Soporte y Mejora Continua
-                    </h3>
-                    <p class="text-gray-400 leading-relaxed">Testing, soporte funcional, gestión de incidencias y optimización constante del rendimiento.</p>
+                <div class="group bg-dark-900 border border-gray-800 p-8 rounded-2xl hover:border-brand-500/50 reveal">
+                    <h3 class="text-xl font-bold text-white mb-4 flex items-center gap-3"><i data-lucide="git-merge" class="text-brand-400"></i> DevOps y Operación</h3>
+                    <p class="text-gray-400">Entornos confiables y monitoreo 24/7.</p>
                 </div>
             </div>
         </div>
     </section>
 
     <section id="metodo" class="py-24 bg-dark-900 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center max-w-3xl mx-auto mb-20 reveal">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 text-white">Nuestro método</h2>
-                <p class="text-gray-400 text-lg">Procesos claros que reducen riesgos y aceleran resultados.</p>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20 reveal">
+                <h2 class="text-3xl md:text-4xl font-bold text-white">Nuestro método</h2>
             </div>
-
             <div class="relative timeline-line max-w-4xl mx-auto">
                 <div class="relative z-10 flex flex-col md:flex-row items-center mb-16 reveal">
                     <div class="md:w-1/2 flex justify-start md:justify-end md:pr-12 w-full pl-16 md:pl-0">
                         <div class="text-left md:text-right">
-                            <h3 class="text-xl font-bold text-white">Diagnóstico estratégico</h3>
-                            <p class="text-gray-400 mt-2">Analizamos tu modelo de negocio y procesos clave.</p>
+                            <h3 class="text-xl font-bold text-white">Diagnóstico</h3>
+                            <p class="text-gray-400">Analizamos el negocio y procesos clave.</p>
                         </div>
                     </div>
-                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_15px_rgba(45,212,191,0.5)]">
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center">
                         <span class="text-xs font-bold text-white">1</span>
                     </div>
                     <div class="md:w-1/2 w-full"></div>
                 </div>
-                
-                <div class="relative z-10 flex flex-col md:flex-row items-center mb-16 reveal">
+                <div class="relative z-10 flex flex-col md:flex-row items-center reveal">
                     <div class="md:w-1/2 w-full"></div>
-                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-dark-900 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_15px_rgba(45,212,191,0.5)]">
-                        <span class="text-xs font-bold text-white">2</span>
+                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-brand-500 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center">
+                        <i data-lucide="check" class="w-4 h-4 text-dark-900 font-bold"></i>
                     </div>
                     <div class="md:w-1/2 flex justify-start pl-16 md:pl-12 w-full">
                         <div class="text-left">
-                            <h3 class="text-xl font-bold text-white">Diseño y Ejecución</h3>
-                            <p class="text-gray-400 mt-2">Implementación por fases con entregables claros y calidad asegurada.</p>
+                            <h3 class="text-xl font-bold text-white">Operación</h3>
+                            <p class="text-gray-400">Soporte permanente con métricas reales.</p>
                         </div>
                     </div>
-                </div>
-
-                <div class="relative z-10 flex flex-col md:flex-row items-center reveal">
-                    <div class="md:w-1/2 flex justify-start md:justify-end md:pr-12 w-full pl-16 md:pl-0">
-                        <div class="text-left md:text-right">
-                            <h3 class="text-xl font-bold text-white">Operación continua</h3>
-                            <p class="text-gray-400 mt-2">Monitoreo y soporte permanente con indicadores de desempeño.</p>
-                        </div>
-                    </div>
-                    <div class="absolute left-6 md:left-1/2 w-8 h-8 rounded-full bg-brand-500 border-4 border-brand-500 transform -translate-x-1/2 flex items-center justify-center shadow-[0_0_20px_rgba(45,212,191,0.8)]">
-                        <i data-lucide="check" class="w-4 h-4 text-dark-900 font-bold"></i>
-                    </div>
-                    <div class="md:w-1/2 w-full"></div>
                 </div>
             </div>
         </div>
@@ -347,52 +263,36 @@
 
     <footer id="contacto" class="bg-dark-900 py-24 border-t border-white/5">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <div>
-                    <div class="flex items-center gap-2 mb-6 cursor-pointer" onclick="window.scrollTo(0,0)">
-                        <svg width="150" height="50" viewBox="0 0 160 50" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 40L20 5L35 40H5Z" fill="white"/>
-                            <path d="M32 40L47 5L62 40H45V48H40V40H32Z" fill="white"/>
-                            <path d="M80 40H110M85 30H105M90 20H100M95 5V15" stroke="white" stroke-width="3" stroke-linecap="round"/>
-                            <path d="M78 40L95 5L112 40H78Z" fill="white" fill-opacity="0.15"/>
-                            <text x="120" y="22" fill="white" font-family="Plus Jakarta Sans" font-weight="400" font-size="12" letter-spacing="1">GRUPO</text>
-                            <text x="120" y="40" fill="#14b8a6" font-family="Plus Jakarta Sans" font-weight="800" font-size="16" letter-spacing="1">UXMAL</text>
-                        </svg>
-                    </div>
-                    <p class="text-gray-400 text-sm">Innovación tecnológica estratégica desde Argentina y México para el mundo.</p>
+                    <svg width="150" height="50" viewBox="0 0 160 50" fill="none" class="mb-6">
+                        <path d="M5 40L20 5L35 40H5Z" fill="white"/>
+                        <path d="M28 40L41 5L54 35H42V42H38V35H28Z" fill="white"/>
+                        <path d="M75 35H105M80 25H100M85 15H95M90 5V10" stroke="white" stroke-width="3" stroke-linecap="round"/>
+                        <path d="M72 35L90 5L108 35H72Z" fill="white" fill-opacity="0.15"/>
+                        <text x="115" y="18" fill="white" font-family="Plus Jakarta Sans" font-weight="400" font-size="12">GRUPO</text>
+                        <text x="115" y="35" fill="#14b8a6" font-family="Plus Jakarta Sans" font-weight="800" font-size="16">UXMAL</text>
+                    </svg>
+                    <p class="text-gray-400 text-sm">Argentina & México para el mundo.</p>
                 </div>
-                
-                <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-8">
-                    <div>
-                        <h4 class="text-white font-bold mb-6">Contacto</h4>
-                        <ul class="space-y-4">
-                            <li><a href="mailto:hola@grupouxmal.tech" class="flex items-center gap-3 text-gray-400 hover:text-brand-400 transition-colors"><i data-lucide="mail" class="w-5 h-5"></i> hola@grupouxmal.tech</a></li>
-                            <li><a href="https://wa.me/5491150213061" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><i data-lucide="message-circle" class="w-5 h-5 text-brand-400"></i> 🇦🇷 +54 9 11 5021-3061</a></li>
-                            <li><a href="https://wa.me/525622007080" target="_blank" class="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"><i data-lucide="message-circle" class="w-5 h-5 text-brand-400"></i> 🇲🇽 +52 56 2200 7080</a></li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h4 class="text-white font-bold mb-6">Navegación</h4>
-                        <ul class="space-y-2 text-gray-400 text-sm">
-                            <li><a href="#quienes-somos" class="hover:text-white transition-colors">Quiénes Somos</a></li>
-                            <li><a href="#servicios" class="hover:text-white transition-colors">Servicios</a></li>
-                            <li><a href="#metodo" class="hover:text-white transition-colors">Metodología</a></li>
-                        </ul>
+                <div class="space-y-4">
+                    <h4 class="text-white font-bold">Contacto</h4>
+                    <a href="mailto:hola@grupouxmal.tech" class="flex items-center gap-3 text-gray-400 hover:text-brand-400 transition-colors"><i data-lucide="mail"></i> hola@grupouxmal.tech</a>
+                    <div class="flex gap-4">
+                        <a href="https://wa.me/5491150213061" target="_blank" class="text-gray-400 hover:text-white">🇦🇷 WhatsApp</a>
+                        <a href="https://wa.me/525622007080" target="_blank" class="text-gray-400 hover:text-white">🇲🇽 WhatsApp</a>
                     </div>
                 </div>
-            </div>
-            <div class="mt-20 pt-8 border-t border-white/5 text-center text-gray-500 text-xs">
-                © 2026 GRUPO UXMAL. Todos los derechos reservados.
             </div>
         </div>
     </footer>
 
     <div class="fixed bottom-6 right-6 z-50 group">
         <div class="absolute bottom-full right-0 mb-4 flex flex-col gap-2 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300">
-            <a href="https://wa.me/5491150213061" target="_blank" class="bg-white text-dark-900 px-4 py-2 rounded-full shadow-2xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">🇦🇷 Argentina</a>
-            <a href="https://wa.me/525622007080" target="_blank" class="bg-white text-dark-900 px-4 py-2 rounded-full shadow-2xl font-bold text-xs flex items-center gap-2 hover:scale-105 transition-transform">🇲🇽 México</a>
+            <a href="https://wa.me/5491150213061" target="_blank" class="bg-white text-dark-900 px-4 py-2 rounded-full shadow-2xl font-bold text-xs">🇦🇷 Arg</a>
+            <a href="https://wa.me/525622007080" target="_blank" class="bg-white text-dark-900 px-4 py-2 rounded-full shadow-2xl font-bold text-xs">🇲🇽 Méx</a>
         </div>
-        <button class="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-2xl hover:scale-110 transition-transform">
+        <button class="w-16 h-16 bg-[#25D366] rounded-full flex items-center justify-center text-white shadow-2xl">
             <svg class="w-9 h-9" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
         </button>
     </div>
@@ -402,12 +302,6 @@
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         btn.addEventListener('click', () => menu.classList.toggle('hidden'));
-
-        window.addEventListener('scroll', () => {
-            const nav = document.getElementById('navbar');
-            if (window.scrollY > 20) nav.classList.add('bg-dark-900', 'shadow-2xl');
-            else nav.classList.remove('bg-dark-900', 'shadow-2xl');
-        });
 
         const revealOnScroll = new IntersectionObserver(function(entries, observer) {
             entries.forEach(entry => {
